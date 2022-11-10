@@ -47,6 +47,9 @@ $(function () {
 // I want the styling of a timeblock to be based on the current time of day
   //  need to make a function that based on the current time of day, will assign a past, present, future style class to all of the hour divs in the html 
     // will need make if statment that uses dayjs() and when executed will use element.classList.add() method to assign either the past, present, or future class to that div
+      // do I compare teh value of dayjs() with the id of the div
+        // ex if dayjs() === textcontent.hour-9
+              // hour-9.classList.add("present")
 
 
 
@@ -56,10 +59,6 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-
-
-
-
 
 
 
