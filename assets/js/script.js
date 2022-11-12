@@ -29,7 +29,7 @@ var hourFive = dayjs().hour('5');
 var workHours =  [hourNine.$H, hourTen.$H, houreleven.$H, hourTwelve.$H, hourOne.$H, hourTwo.$H, hourThree.$H, hourFour.$H, hourFive.$H];
 console.log(workHours)
 
-// var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
+var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
 
 
 $('#currentDay').text(currentTime);
@@ -53,12 +53,12 @@ $('#currentDay').text(currentTime);
     //   renderEvents()
     // }
     $(function saveEvent() {
-      var hourEvents = document.querySelectorAll(".description").value
-      console.log(hourEvents);    
-      localStorage.setItem("events", JSON.stringify(hourEvents));
-      if (hourEvents !== "") {
-        var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
-        eventsArr.push(hourEvents);
+      var hourEvents = document.querySelectorAll(".description")
+      console.log(hourEvents);  
+      for (var i = 0; i < hourEvents.length; i++) {
+      
+        // var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
+        eventsArr.push(hourEvents[i].value);
         console.log(eventsArr);
       }
       localStorage.setItem("events", JSON.stringify(eventsArr));
@@ -81,8 +81,8 @@ $('#currentDay').text(currentTime);
 
     $(".saveBtn").click(function (event) {
       event.preventDefault();
-      saveEvent();
-      renderEvent();
+      $saveEvent();
+      $renderEvent();
   });
 
   // will need  to render the events to their corresponding time bloks whenever the page is refroshed
