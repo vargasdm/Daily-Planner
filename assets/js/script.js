@@ -68,21 +68,21 @@ $('#currentDay').text(currentTime);
   // need another function that renders the event information to the <textarea> of the correct time block
     // somthing like function 
     
-  //   $(function renderEvent() {
-  //     var scheduledEvents = JSON.parse(localStorage.getItem("events")); 
-  //     for (var i = 0; i < events.length; i++) {
-  //       if (events !== null) {
-  //       $("#associated div").textContent = scheduledEvents.event
-  //       } else {
-  //         i++;
-  //       }
-  //     }
-  //   });
+    // $(function renderEvent() {
+    //   // var scheduledEvents = JSON.parse(localStorage.getItem("events")); 
+    //   for (var i = 0; i < eventsArr.length; i++) {
+    //     if (events !== null) {
+    //     $("#associated div").textContent = scheduledEvents.event
+    //     } else {
+    //       i++;
+    //     }
+    //   }
+    // });
 
     $(".saveBtn").click(function (event) {
       event.preventDefault();
-      $saveEvent();
-      $renderEvent();
+      saveEvent();
+      renderEvent();
   });
 
   // will need  to render the events to their corresponding time bloks whenever the page is refroshed
