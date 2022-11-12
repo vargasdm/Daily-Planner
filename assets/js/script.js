@@ -4,27 +4,27 @@
 // TODO: Add code to display the current date in the header of the page.
 var currentTime = dayjs().format('dddd, MMMM D YYYY');
 var saveBtn = document.querySelectorAll(".saveBtn")
-// var nineBlock = $("#hour-9");
-// var tenBlock = $("#hour-10");
-// var elevenBlock = $("#hour-11");
-// var twelveBlock = $("#hour-12");
-// var oneBlock = $("#hour-1");
-// var twoBlock = $("#hour-2");
-// var threeBlock = $("#hour-3");
-// var fourBlock = $("#hour-4");
-// var fiveBlock = $("#hour-5");
-var hourBlocks = [
-  {
-    nineBlock: $("#hour-9"),
-    tenBlock: $("#hour-10"),
-    elevenBlock: $("#hour-11"),
-    twelveBlock: $("#hour-12"),
-    oneBlock: $("#hour-1"),
-    twoBlock: $("#hour-2"),
-    threeBlock: $("#hour-3"),
-    fourBlock: $("#hour-4"),
-    fiveBlock: $("#hour-5"),
-  }]
+var nineBlock = $("#hour-9");
+var tenBlock = $("#hour-10");
+var elevenBlock = $("#hour-11");
+var twelveBlock = $("#hour-12");
+var oneBlock = $("#hour-1");
+var twoBlock = $("#hour-2");
+var threeBlock = $("#hour-3");
+var fourBlock = $("#hour-4");
+var fiveBlock = $("#hour-5");
+// var hourBlocks = [
+//   {
+//     nineBlock: $("#hour-9"),
+//     tenBlock: $("#hour-10"),
+//     elevenBlock: $("#hour-11"),
+//     twelveBlock: $("#hour-12"),
+//     oneBlock: $("#hour-1"),
+//     twoBlock: $("#hour-2"),
+//     threeBlock: $("#hour-3"),
+//     fourBlock: $("#hour-4"),
+//     fiveBlock: $("#hour-5"),
+//   }]
 // console.log(hourBlocks[0]);
 var hourNine = dayjs().hour('9');
 // console.log(hourNine.$H);
@@ -37,13 +37,16 @@ var hourThree = dayjs().hour('15');
 var hourFour = dayjs().hour('16');
 var hourFive = dayjs().hour('17');
 
+var hour = $(this).siblings('div').val();
+
+var i = 0
 var workHours = [hourNine.$H, hourTen.$H, houreleven.$H, hourTwelve.$H, hourOne.$H, hourTwo.$H, hourThree.$H, hourFour.$H, hourFive.$H];
 // console.log(workHours)
 
-var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
+// var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
 
-var hourEvents = document.querySelectorAll("textarea");
-console.log(hourEvents);
+// var hourEvents = document.querySelectorAll("textarea");
+// console.log(hourEvents);
 
 
 $('#currentDay').text(currentTime);
@@ -57,19 +60,12 @@ $('#currentDay').text(currentTime);
 // add a click eventListener for when save buutton is clicked that executes a function or functions that will save the info you put in the <textarea> to local storage and render the event info on teh page
 // need to call a function that uses localStorage.setItem to store the event data in the local storage
 function saveEvent() {
-  // var hourEvents = document.querySelectorAll(".description")
-  console.log(hourEvents);
-  for (var i = 0; i < hourEvents.length; i++) {
-
-    // var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
-    eventsArr.push(hourEvents[i].value);
-    console.log(eventsArr);
-    localStorage.setItem(hourEvents[i], JSON.stringify(eventsArr[i]));
-    i++
+  var value = $(this).siblings('textarea').val();
+  console.log(value)  
+  if (value !== "") {
+    
+    localStorage.setItem('hour', JSON.stringify(value));
   }
-  
-  // // localStorage.setItem(hourBlocks[i], JSON.stringify(eventsArr))
-  // renderEvents()
 };
 
 // // need another function that renders the event information to the <textarea> of the correct time block
@@ -95,8 +91,9 @@ function saveEvent() {
 // useful when saving the description in local storage?
 $(".saveBtn").click(function (event) {
   event.preventDefault();
+  var eventAnswer = $(this).siblings('textarea').val();
+  console.log(eventAnswer)
   saveEvent();
-  renderEvents();
 });
 
 
