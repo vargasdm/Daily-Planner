@@ -4,27 +4,27 @@
 // TODO: Add code to display the current date in the header of the page.
 var currentTime = dayjs().format('dddd, MMMM D YYYY');
 var saveBtn = document.querySelectorAll(".saveBtn")
-var nineBlock = $("#hour-9");
-var tenBlock = $("#hour-10");
-var elevenBlock = $("#hour-11");
-var twelveBlock = $("#hour-12");
-var oneBlock = $("#hour-1");
-var twoBlock = $("#hour-2");
-var threeBlock = $("#hour-3");
-var fourBlock = $("#hour-4");
-var fiveBlock = $("#hour-5");
-// var hourBlocks = [
-//   {
-//     nineBlock: $("#hour-9"),
-//     tenBlock: $("#hour-10"),
-//     elevenBlock: $("#hour-11"),
-//     twelveBlock: $("#hour-12"),
-//     oneBlock: $("#hour-1"),
-//     twoBlock: $("#hour-2"),
-//     threeBlock: $("#hour-3"),
-//     fourBlock: $("#hour-4"),
-//     fiveBlock: $("#hour-5"),
-//   }]
+// var nineBlock = $("#hour-9");
+// var tenBlock = $("#hour-10");
+// var elevenBlock = $("#hour-11");
+// var twelveBlock = $("#hour-12");
+// var oneBlock = $("#hour-1");
+// var twoBlock = $("#hour-2");
+// var threeBlock = $("#hour-3");
+// var fourBlock = $("#hour-4");
+// var fiveBlock = $("#hour-5");
+var hourBlocks = [
+  {
+    nineBlock: $("#hour-9"),
+    tenBlock: $("#hour-10"),
+    elevenBlock: $("#hour-11"),
+    twelveBlock: $("#hour-12"),
+    oneBlock: $("#hour-1"),
+    twoBlock: $("#hour-2"),
+    threeBlock: $("#hour-3"),
+    fourBlock: $("#hour-4"),
+    fiveBlock: $("#hour-5"),
+  }]
 // console.log(hourBlocks[0]);
 var hourNine = dayjs().hour('9');
 // console.log(hourNine.$H);
@@ -59,14 +59,7 @@ $('#currentDay').text(currentTime);
 // window.onload = renderEvents(), addBlockStyling();
 // add a click eventListener for when save buutton is clicked that executes a function or functions that will save the info you put in the <textarea> to local storage and render the event info on teh page
 // need to call a function that uses localStorage.setItem to store the event data in the local storage
-function saveEvent() {
-  var value = $(this).siblings('textarea').val();
-  console.log(value)  
-  if (value !== "") {
-    
-    localStorage.setItem('hour', JSON.stringify(value));
-  }
-};
+
 
 // // need another function that renders the event information to the <textarea> of the correct time block
 // function renderEvents() {
@@ -79,7 +72,7 @@ function saveEvent() {
 //     } else {
 //       i++;
 //     }
-//   }
+//   }s
 // };
 
 
@@ -87,12 +80,19 @@ function saveEvent() {
 // use the id in the containing time-block as a key to save the user input in
 // local storage. HINT: What does `this` reference in the click listener
 // function? How can DOM traversal be used to get the "hour-x" id of the
-// time-block containing the button that was clicked? How might the id be
+// time-block containing the button that was clicked? How might the id bes
 // useful when saving the description in local storage?
 $(".saveBtn").click(function (event) {
   event.preventDefault();
   var eventAnswer = $(this).siblings('textarea').val();
   console.log(eventAnswer)
+  function saveEvent() {
+    console.log(eventAnswer)  
+    if (eventAnswer !== "") {
+      
+      localStorage.setItem($(this).parent('div').prop(), JSON.stringify(eventAnswer));
+    }
+  };
   saveEvent();
 });
 
