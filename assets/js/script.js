@@ -29,7 +29,7 @@ var hourFive = dayjs().hour('5');
 var workHours =  [hourNine.$H, hourTen.$H, houreleven.$H, hourTwelve.$H, hourOne.$H, hourTwo.$H, hourThree.$H, hourFour.$H, hourFive.$H];
 console.log(workHours)
 
-var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
+// var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
 
 
 $('#currentDay').text(currentTime);
@@ -53,10 +53,10 @@ $('#currentDay').text(currentTime);
     //   renderEvents()
     // }
     $(function saveEvent() {
-      var hourEvents = event.value
+      var hourEvents = document.querySelectorAll(".description").value
       console.log(hourEvents);    
       localStorage.setItem("events", JSON.stringify(hourEvents));
-      if (input !== "") {
+      if (hourEvents !== "") {
         var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
         eventsArr.push(hourEvents);
         console.log(eventsArr);
