@@ -2,7 +2,7 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 // TODO: Add code to display the current date in the header of the page.
-var currentTime = dayjs().format('dddd, MMMM D YYYY');
+// var currentTime = dayjs().format('dddd, MMMM D YYYY');
 var saveBtn = document.querySelectorAll(".saveBtn")
 // var nineBlock = $("#hour-9");
 // var tenBlock = $("#hour-10");
