@@ -25,25 +25,26 @@ var hourBlocks = [
     fourBlock: $("#hour-4"),
     fiveBlock: $("#hour-5"),
   }]
-console.log(hourBlocks[0]);
+// console.log(hourBlocks[0]);
 var hourNine = dayjs().hour('9');
-console.log(hourNine.$H);
+// console.log(hourNine.$H);
 var hourTen = dayjs().hour('10');
 var houreleven = dayjs().hour('11');
 var hourTwelve = dayjs().hour('12');
-var hourOne = dayjs().hour('1');
-var hourTwo = dayjs().hour('2');
-var hourThree = dayjs().hour('3');
-var hourFour = dayjs().hour('4');
-var hourFive = dayjs().hour('5');
+var hourOne = dayjs().hour('13');
+var hourTwo = dayjs().hour('14');
+var hourThree = dayjs().hour('15');
+var hourFour = dayjs().hour('16');
+var hourFive = dayjs().hour('17');
 
 var workHours = [hourNine.$H, hourTen.$H, houreleven.$H, hourTwelve.$H, hourOne.$H, hourTwo.$H, hourThree.$H, hourFour.$H, hourFive.$H];
-console.log(workHours)
+// console.log(workHours)
 
 var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
 
-var hourEvents = document.querySelectorAll(".description")
-hourEvents = "";
+var hourEvents = document.querySelectorAll("textarea");
+console.log(hourEvents);
+
 
 $('#currentDay').text(currentTime);
 
@@ -63,8 +64,11 @@ function saveEvent() {
     // var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
     eventsArr.push(hourEvents[i].value);
     console.log(eventsArr);
+    localStorage.setItem(hourEvents[i], JSON.stringify(eventsArr));
+    i++
   }
-  localStorage.setItem("events", JSON.stringify(eventsArr));
+  
+  // localStorage.setItem(hourBlocks[i], JSON.stringify(eventsArr))
   renderEvents()
 };
 
