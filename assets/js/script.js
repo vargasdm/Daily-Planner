@@ -64,27 +64,27 @@ function saveEvent() {
     // var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
     eventsArr.push(hourEvents[i].value);
     console.log(eventsArr);
-    localStorage.setItem(hourEvents[i], JSON.stringify(eventsArr));
+    localStorage.setItem(hourEvents[i], JSON.stringify(eventsArr[i]));
     i++
   }
   
-  // localStorage.setItem(hourBlocks[i], JSON.stringify(eventsArr))
-  renderEvents()
+  // // localStorage.setItem(hourBlocks[i], JSON.stringify(eventsArr))
+  // renderEvents()
 };
 
 // // need another function that renders the event information to the <textarea> of the correct time block
-function renderEvents() {
-  // var scheduledEvents = JSON.parse(localStorage.getItem("events")); 
-  for (var i = 0; i < eventsArr.length; i++) {
-    if (eventsArr[i] !== null) {
-      hourEvents[i].text(eventsArr[i])
-      console.log(hourEvents)
-      i++
-    } else {
-      i++;
-    }
-  }
-};
+// function renderEvents() {
+//   // var scheduledEvents = JSON.parse(localStorage.getItem("events")); 
+//   for (var i = 0; i < eventsArr.length; i++) {
+//     if (eventsArr[i] !== null) {
+//       hourEvents[i].text(eventsArr[i])
+//       console.log(hourEvents)
+//       i++
+//     } else {
+//       i++;
+//     }
+//   }
+// };
 
 
 // TODO: Add a listener for click events on the save button. This code should
