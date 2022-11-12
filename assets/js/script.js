@@ -67,15 +67,12 @@ function renderEvents() {
 
 };
 
-
 // TODO: Add a listener for click events on the save button. This code should
 // use the id in the containing time-block as a key to save the user input in
 // local storage. HINT: What does `this` reference in the click listener
 // function? How can DOM traversal be used to get the "hour-x" id of the
 // time-block containing the button that was clicked? How might the id bes
 // useful when saving the description in local storage?
-
-
 $(".saveBtn").click(function (event) {
   event.preventDefault();
   var eventAnswer = $(this).siblings('textarea').val();
@@ -86,11 +83,6 @@ $(".saveBtn").click(function (event) {
     localStorage.setItem(hour, eventAnswer);
   }
 })
-
-
-
-
-
 
 //
 // TODO: Add code to apply the past, present, or future class to each time
@@ -109,13 +101,10 @@ function addBlockStyling() {
     console.log(dayjs().hour())
     if (dayjs().hour() > workHours[i]) {
       hourBlocks[i].addClass("past");
-      i++
     } else if (dayjs().hour() < workHours[i]) {
       hourBlocks[i].addClass("future");
-      i++
     } else {
       hourBlocks[i].addClass("present");
-      i++
     }
   }
 }
