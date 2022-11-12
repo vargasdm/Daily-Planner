@@ -1,13 +1,42 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that                 ?????
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+  // TODO: Add code to display the current date in the header of the page.
+    //  will want to use dayjs(); to get the current date
+      // want to put the current date in teh format day of week, month , date so look up what that is for Dayjs()
+var currentTime = dayjs().format('dddd, MMMM D YYYY');
+var saveBtn = document.querySelectorAll(".saveBtn") 
+var nineBlock = $("#hour-9");
+var tenBlock = $("#hour-10");
+var elevenBlock = $("#hour-11");
+var twelveBlock = $("#hour-12");
+var oneBlock = $("#hour-1");
+var twoBlock = $("#hour-2");
+var threeBlock = $("#hour-3");
+var fourBlock = $("#hour-4");
+var fiveBlock = $("#hour-5");
+var hourNine = dayjs().hour('9');
+console.log(hourNine.$H);
+var hourTen = dayjs().hour('10');
+var houreleven = dayjs().hour('11');
+var hourTwelve = dayjs().hour('12');
+var hourOne = dayjs().hour('1');
+var hourTwo = dayjs().hour('2');
+var hourThree = dayjs().hour('3');
+var hourFour = dayjs().hour('4');
+var hourFive = dayjs().hour('5');
+
+var workHours =  [hourNine.$H, hourTen.$H, houreleven.$H, hourTwelve.$H, hourOne.$H, hourTwo.$H, hourThree.$H, hourFour.$H, hourFive.$H];
+console.log(workHours)
+
+var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
 
 
-
+$('#currentDay').text(currentTime);
 
 
 // ask about the syntax for declaring functions this way, am I still able to name the function????
-$(function () {
+// $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -23,16 +52,42 @@ $(function () {
       // localStorage.setItem("events", JSON.stringify(event))
     //   renderEvents()
     // }
+    $(function saveEvent() {
+      var hourEvents = event.value
+      console.log(hourEvents);    
+      localStorage.setItem("events", JSON.stringify(hourEvents));
+      if (input !== "") {
+        var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
+        eventsArr.push(hourEvents);
+        console.log(eventsArr);
+      }
+      localStorage.setItem("events", JSON.stringify(eventsArr));
+      renderEvents()
+    });
 
   // need another function that renders the event information to the <textarea> of the correct time block
-    // somthing like function renderEvent() {
-      // // var scheduledEvents = JSON.parse(localStorage.getItem("events")); 
-      // if (lastGrade !== null) {
-      // document.querySelector("#associated div").textContent = scheduledEvents.event
-  // }
+    // somthing like function 
+    
+  //   $(function renderEvent() {
+  //     var scheduledEvents = JSON.parse(localStorage.getItem("events")); 
+  //     for (var i = 0; i < events.length; i++) {
+  //       if (events !== null) {
+  //       $("#associated div").textContent = scheduledEvents.event
+  //       } else {
+  //         i++;
+  //       }
+  //     }
+  //   });
+
+    $(".saveBtn").click(function (event) {
+      event.preventDefault();
+      saveEvent();
+      renderEvent();
+  });
 
   // will need  to render the events to their corresponding time bloks whenever the page is refroshed
     // make somthing like and init() function that calls the renderEvents() function
+    // should be vcalled immediately
   
   
   
@@ -50,6 +105,7 @@ $(function () {
       // do I compare teh value of dayjs() with the id of the div
         // ex if dayjs() === textcontent.hour-9
               // hour-9.classList.add("present")
+                // make variabels for all hours of the day
 
 
 
@@ -62,11 +118,7 @@ $(function () {
 
 
 
-  // TODO: Add code to display the current date in the header of the page.
-    //  will want to use dayjs(); to get the current date
-      // want to put the current date in teh format day of week, month , date so look up what that is for Dayjs()
-var currentTime = dayjs().format('dddd, MMMM D YYYY');
-$('#currentDay').text(currentTime);
 
 
-});
+
+// });
