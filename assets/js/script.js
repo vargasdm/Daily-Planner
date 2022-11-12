@@ -31,6 +31,8 @@ console.log(workHours)
 
 var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
 
+var hourEvents = document.querySelectorAll(".description")
+hourEvents = "";
 
 $('#currentDay').text(currentTime);
 
@@ -52,8 +54,21 @@ $('#currentDay').text(currentTime);
       // localStorage.setItem("events", JSON.stringify(event))
     //   renderEvents()
     // }
-    $(function saveEvent() {
-      var hourEvents = document.querySelectorAll(".description")
+    function renderEvents() {
+      // var scheduledEvents = JSON.parse(localStorage.getItem("events")); 
+      for (var i = 0; i < eventsArr.length; i++) {
+        if (eventsArr[i] !== null) {
+        hourEvents[i].text(eventsArr[i])
+        console.log(hourEvents)
+        i++
+        } else {
+          i++;
+        }
+      }
+    };
+    
+    function saveEvent() {
+      // var hourEvents = document.querySelectorAll(".description")
       console.log(hourEvents);  
       for (var i = 0; i < hourEvents.length; i++) {
       
@@ -63,21 +78,12 @@ $('#currentDay').text(currentTime);
       }
       localStorage.setItem("events", JSON.stringify(eventsArr));
       renderEvents()
-    });
+    };
 
   // need another function that renders the event information to the <textarea> of the correct time block
     // somthing like function 
     
-    // $(function renderEvent() {
-    //   // var scheduledEvents = JSON.parse(localStorage.getItem("events")); 
-    //   for (var i = 0; i < eventsArr.length; i++) {
-    //     if (events !== null) {
-    //     $("#associated div").textContent = scheduledEvents.event
-    //     } else {
-    //       i++;
-    //     }
-    //   }
-    // });
+
 
     $(".saveBtn").click(function (event) {
       event.preventDefault();
