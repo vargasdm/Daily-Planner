@@ -15,7 +15,7 @@ During this project I learned:
 - how to store data in the local storage and then retreive and render that data later
 - how to use an .onlaod method to run functions when I reload my page
 
-![Screenshot](https://github.com/vargasdm/My-Code-Quiz/blob/main/assets/images/code-quiz.jpg)
+![Screenshot](https://github.com/vargasdm/Daily-Planner/blob/main/assets/images/daily-planner.jpg)
 
 ## Table of Contents
 
@@ -30,11 +30,8 @@ When the page is opened, you are presented with the date and date at the time. B
 There is no istallation required. The project can be viewed at through the following link: https://vargasdm.github.io/Daily-Planner/.
 The GitHub repository can be viewed at https://github.com/vargasdm/Daily-Planner
 
-![Screenshot](https://github.com/vargasdm/My-Code-Quiz/blob/main/assets/images/code-quiz-question.jpg)
-![Screenshot](https://github.com/vargasdm/My-Code-Quiz/blob/main/assets/images/code-quiz-question-feedbackandscore.jpg)
-![Screenshot](https://github.com/vargasdm/My-Code-Quiz/blob/main/assets/images/code-quiz-game-over.jpg)
-![Screenshot](https://github.com/vargasdm/My-Code-Quiz/blob/main/assets/images/code-quiz-save-and-render.jpg)
-
+![Screenshot](https://github.com/vargasdm/Daily-Planner/blob/main/assets/images/daily-planner-saved-events.jpg)
+![Screenshot](https://github.com/vargasdm/Daily-Planner/blob/main/assets/images/daily-planner-saved-refresh.jpg)
 
 ## Credits
 
