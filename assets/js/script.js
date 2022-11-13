@@ -1,18 +1,6 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that                 ?????
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-// TODO: Add code to display the current date in the header of the page.
-// var currentTime = dayjs().format('dddd, MMMM D YYYY');
-var saveBtn = document.querySelectorAll(".saveBtn")
-// var nineBlock = $("#hour-9");
-// var tenBlock = $("#hour-10");
-// var elevenBlock = $("#hour-11");
-// var twelveBlock = $("#hour-12");
-// var oneBlock = $("#hour-1");
-// var twoBlock = $("#hour-2");
-// var threeBlock = $("#hour-3");
-// var fourBlock = $("#hour-4");
-// var fiveBlock = $("#hour-5");
+// variable that sets the format for the current date and time
+var currentTime = dayjs().format('dddd, MMMM D YYYY H:mm');
+var saveBtn = document.querySelectorAll(".saveBtn");
 var hourBlocks = [
     nineBlock = $("#hour-9"),
     tenBlock= $("#hour-10"),
@@ -23,10 +11,9 @@ var hourBlocks = [
     threeBlock= $("#hour-3"),
     fourBlock= $("#hour-4"),
     fiveBlock= $("#hour-5"),
-  ]
-// console.log(hourBlocks[0]);
+  ];
+// sets hour values that will be used addBlockStyling function
 var hourNine = dayjs().hour('9');
-// console.log(hourNine.$H);
 var hourTen = dayjs().hour('10');
 var houreleven = dayjs().hour('11');
 var hourTwelve = dayjs().hour('12');
@@ -35,26 +22,18 @@ var hourTwo = dayjs().hour('14');
 var hourThree = dayjs().hour('15');
 var hourFour = dayjs().hour('16');
 var hourFive = dayjs().hour('17');
-
-var hour = $(this).siblings('div').val();
-
-var i = 0
+//  array that holds the hour number values
 var workHours = [hourNine.$H, hourTen.$H, houreleven.$H, hourTwelve.$H, hourOne.$H, hourTwo.$H, hourThree.$H, hourFour.$H, hourFive.$H];
-console.log(workHours)
 
-// var eventsArr = JSON.parse(localStorage.getItem("events")) || [];
-
-// var hourEvents = document.querySelectorAll("textarea");
-// console.log(hourEvents);
-
-
+// display the current date in the header of the page.
 $('#currentDay').text(currentTime);
 
+// when page is reloaded, renders the events and assigns classes to hour blocks
 window.onload = renderEvents(), addBlockStyling();
 
-
-// // need another function that renders the event information to the <textarea> of the correct time block
+// renders events saved in local storage to the appropriate block
 function renderEvents() {
+  // gets value from local storage with the corresponding number and puts it in the div with the same ID and textarea with the class description
   $("#hour-9 .description").val(localStorage.getItem(9))
   $("#hour-10 .description").val(localStorage.getItem(10))
   $("#hour-11 .description").val(localStorage.getItem(11))
@@ -67,38 +46,27 @@ function renderEvents() {
 
 };
 
-// TODO: Add a listener for click events on the save button. This code should
-// use the id in the containing time-block as a key to save the user input in
-// local storage. HINT: What does `this` reference in the click listener
-// function? How can DOM traversal be used to get the "hour-x" id of the
-// time-block containing the button that was clicked? How might the id bes
-// useful when saving the description in local storage?
+// click eventListener for when save button is clicked
 $(".saveBtn").click(function (event) {
   event.preventDefault();
+  // variable that uses "this" to refer to the click event that involves the save button in one of the hour blocks. .siblings is used to access the sibling <textarea> element. .val() is used to access the value from that element
   var eventAnswer = $(this).siblings('textarea').val();
-  console.log(eventAnswer)
+  // if statement that saves the event when the text area is not empty
   if (eventAnswer !== "") {
+    // creates a variable that uses this to refer to clicking of the button element in the hour block div. . attr is accessing the attribute "id" of that button element that was clicked. 
+    // .split is splitting the id, at the dash, into 2 parts "save" and the number and the 2 parts are put into an array. [1] is accessing the number in the 2 index array
+    // this is just making a variable that accessing the number part of the button element's id
     var hour = $(this).attr('id').split('-')[1];
-    console.log(hour);
+    // creates a key in local storage that has the same number as the id of the save button element that is clicked and saves whatever is in the text area
     localStorage.setItem(hour, eventAnswer);
   }
 })
 
-//
-// TODO: Add code to apply the past, present, or future class to each time
-// block by comparing the id to the current hour. HINTS: How can the id
-// attribute of each time-block be used to conditionally add or remove the                ??????
-// past, present, and future classes? How can Day.js be used to get the
-// current hour in 24-hour time?
-// I want the styling of a timeblock to be based on the current time of day
-//  need to make a function that based on the current time of day, will assign a past, present, future style class to all of the hour divs in the html 
-// will need make if statment that uses dayjs() and when executed will use element.classList.add() method to assign either the past, present, or future class to that div
-
+// function that assigns styling of hour blocks based on the current hour
 function addBlockStyling() {
+  // for loop that loops through the hour block divs
   for (var i = 0; i < hourBlocks.length; i++) {
-    console.log(hourBlocks[3])
-    console.log(hourBlocks.length)
-    console.log(dayjs().hour())
+    // if statement that compares current hour value to the values set for each hour on the planner, then assigns appropriate class styling
     if (dayjs().hour() > workHours[i]) {
       hourBlocks[i].addClass("past");
     } else if (dayjs().hour() < workHours[i]) {
@@ -108,7 +76,3 @@ function addBlockStyling() {
     }
   }
 }
-
-
-
-// });
