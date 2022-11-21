@@ -37,19 +37,18 @@ The GitHub repository can be viewed at https://github.com/vargasdm/Daily-Planner
 
 I followed these links and tutorials in the completion of this project:
 
-- https://www.w3schools.com/jsref/prop_html_style.asp
-- https://www.javatpoint.com/javascript-setattribute#:~:text=The%20setAttribute()%20method%20is,update%20the%20existing%20attribute's%20value.
-- https://www.w3schools.com/howto/howto_css_two_columns.asp
-- https://www.w3schools.com/css/css3_gradients.asp
-- https://openweathermap.org/api/geocoding-api
-- https://openweathermap.org/forecast5
-- https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys
+- https://www.geeksforgeeks.org/difference-between-this-and-this-in-jquery/
 - https://day.js.org/docs/en/display/format
-- https://openweathermap.org/weather-conditions#How-to-get-icon-URL
-- https://dev.to/dcodeyt/append-multiple-elements-using-append-302h#:~:text=on%20Parent%20Nodes-,append(),nodes%20to%20a%20parent%20node.&text=As%20you%20can%20see%2C%20you,append%20everything%20to%20the%20parent.
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
-- https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
-- https://www.w3schools.com/howto/howto_js_add_class.asp
+- https://day.js.org/docs/en/get-set/hour
+- https://stackoverflow.com/questions/17109593/how-can-i-get-the-class-of-a-parent-element
+- https://api.jquery.com/addclass/
+- https://stackoverflow.com/questions/16063549/class-method-in-javascript-is-not-a-function
+- https://www.educative.io/answers/what-are-the-different-ways-to-select-dom-elements-in-javascript
+- https://www.javascripttutorial.net/dom/manipulating/iterate-over-selected-elements/
+- https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
+- https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+- https://www.w3schools.com/jsref/event_onload.asp
+- https://stackoverflow.com/questions/61253909/how-do-i-set-a-javascript-variable-to-the-contents-of-a-textarea-tag
 
 ## License
 
